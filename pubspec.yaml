@@ -1,0 +1,33 @@
+name: blabla
+description: Simple Flutter translation management implementation plugin.
+version: 0.0.1
+repository: https://github.com/XPEHO/blabla
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.20.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: fr.xpeho.blabla
+        pluginClass: BlablaPlugin
+      ios:
+        pluginClass: BlablaPlugin
+      web:
+        pluginClass: BlablaWeb
+        fileName: blabla_web.dart
+  
