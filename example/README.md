@@ -1,16 +1,51 @@
-# blabla_example
+# blabla example
 
-Demonstrates how to use the blabla plugin.
+Simple Flutter translation management implementation plugin.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+# Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+- Add the assets dependecies in your pubspec.yaml, these assets should be in the language folder
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+ex :
+```
+flutter:
+    assets:
+        - language/
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Implementation
+
+- In the main of your application, set the supportedLocales and the localizationsDelegates of your MaterialApp
+
+supportedLocales: appLocales,
+localizationsDelegates: blablaDelegates,
+
+# Usage
+
+- In the asset json, add a translation key/value
+
+ex :
+```
+"example": "This is an example of translation"
+```
+
+- In any text, use the translation using the key
+
+ex :
+```
+translate("example")
+```
+
+- By default, there will only be english in appLocales, but you can override appLocales before the app run in order to add any locales you want
+- The locale used if the device locale isn't in appLocales or if the key doesn't exist in the asset file will be the first locale in appLocales
+
+ex :
+```
+appLocales = [
+    Locale('en', 'US'),
+    Locale('fr', 'FR'),
+];
+runApp(MyApp());
+```
